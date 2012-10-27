@@ -9,22 +9,39 @@ We will be exploring the union between organic shapes and set mathematical formu
 
 #Technique Statement
 Our image-creating procedure will then be divided into three parts.  The procedure will run these parts in their respective order to create the final image.
-1. Julia Set (procedure: julia)
+
+##Julia Set (procedure: julia)
+
 1. Our basic approach will be to use image-compute-pixels as the primary action along with a recursive definition that adjusts according to the Julia formula.
+
 1. The Julia Set is based on the formula Jn+1 = Jn2   + k, where k = n/1000.
+
 2. Set and thus shape of image is altered according to n.
+
 3. Colors are based on the number of recursions it takes each pixel to escape the set.
-2. Circles and Squares Grid (procedures: circles, mesh-grid)
+
+## Circles and Squares Grid (procedures: circles, mesh-grid)
+
 1. For each ones digit (0-9) of n, we will create a procedure that makes a different amount of small circles and squares in a grid.  
+
 1. The size of each circle or square in a grid is set. 
+
 2. The procedures will recurse through an area of the image defined by the parameters, making selections based on the area's row/column and moving forward by offsets until it reaches the end width of the area.
+
 3. Circles will be created with image-select-ellipse! and then selection-transform! with rgb-lighter.  
+
 4. Squares will be created with image-select-rectangle! and then image-select-inverse! to select the outline of the squares.  We will then use selection-transform! with rgb-darker to give the impression of squares. 
-3. Dragon Curve (procedure: dragon)
-1. Will be created using turtle-esque graphics and recursive definition.  
+
+##Dragon Curve (procedure: dragon)
+
+Will be created using turtle-esque graphics and recursive definition.  
+
 1. We will define our own turtle system affectionately named 'pandas'
+
 2. Each panda will be able to take a color-transforming procedure (e.g. invert) and apply it to the color of the pixel it travels over effectively changing the color of that pixel
+
 3. The pandas will travel according to the shape of a Dragon Curve.  The number of the trans-iterations will be altered by n. 
+
 4. We will also make another Dragon Curve-esque fractal by the procedure name dragoons.  This procedure will slightly alter a rewrite rule in the procedure dragon to add variance in our design. 
 
 #Reflection
